@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ArtiSpark - Create, Connect, Craft. Art classes and workshops in Australia. Children's art classes, adult workshops, Paint 'n Sip, and community art projects.">
+    <title>ArtiSpark - Create, Connect, Craft</title>
+    <!-- Halyard Fonts from Adobe Fonts -->
+    <!-- Replace YOUR_KIT_ID with your Adobe Fonts kit ID -->
+    <link rel="stylesheet" href="https://use.typekit.net/YOUR_KIT_ID.css">
+    <!-- If you don't have Adobe Fonts, you can also self-host Halyard font files -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#home" class="logo-link">
+                    <img src="logo_artispark.jpg" alt="ArtiSpark Logo" class="logo">
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Service</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <!-- Decorative dots -->
+        <div class="decorative-dot dot-1"></div>
+        <div class="decorative-dot dot-2"></div>
+        <div class="decorative-dot dot-3"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h1 class="hero-title">Spark Your Creative Spirit</h1>
+                    <p class="hero-subtitle">An all-in-one platform to learn, create, and connect with fellow artists in a vibrant creative community. From children's art classes to adult workshops and Paint 'n Sip sessions.</p>
+                    <div class="hero-actions">
+                        <a href="#services" class="btn btn-primary">Start Today</a>
+                        <a href="#contact" class="btn btn-secondary">Registration</a>
+                    </div>
+                    <div class="category-selection">
+                        <h3 class="category-title">Choose Your Category</h3>
+                        <div class="category-options">
+                            <div class="category-option">Children's Art Classes</div>
+                            <div class="category-option">Adult Workshops</div>
+                            <div class="category-option">Paint 'n Sip</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="capsule-gallery">
+                        <div class="capsule-col col-1">
+                            <div class="capsule-item capsule-purple">
+                                <img src="https://img.freepik.com/premium-photo/paints-brushes-painting_200402-3185.jpg?w=2000" alt="Art student" loading="lazy">
+                            </div>
+                            <div class="capsule-item capsule-yellow">
+                                <img src="https://img.freepik.com/free-photo/girl-painting-c…udio_23-2148002485.jpg?semt=ais_hybrid&w=740&q=80" alt="Crafting" loading="lazy">
+                            </div>
+                        
+                        </div>
+                        <div class="capsule-col col-2">
+                            <div class="capsule-item capsule-red">
+                                <img src="https://img.freepik.com/free-photo/hand-painted-pottery-plate_23-2151949035.jpg?uid=R58342429&ga=GA1.1.1916532384.1768814171&semt=ais_hybrid&w=740&q=80" alt="Painting" loading="lazy">
+                            </div>
+                            <div class="capsule-item capsule-blue">
+                                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=600&fit=crop" alt="Artist at work" loading="lazy">
+                            </div>
+                            
+                        </div>
+                        <div class="capsule-col col-3">
+                            <div class="capsule-item capsule-orange">
+                                <img src="https://img.freepik.com/free-photo/watercolor-pottery-illustration_23-2151810014.jpg?uid=R58342429&ga=GA1.1.1916532384.1768814171&semt=ais_hybrid&w=740&q=80" alt="Pottery" loading="lazy">
+                            </div>
+                            <div class="capsule-item capsule-green">
+                                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=600&fit=crop" alt="Child painting" loading="lazy">
+                            </div>
+                           
+                        </div>
+                        <!-- Extra decorative dots like in ref -->
+                        <div class="ref-dot dot-yellow"></div>
+                        <div class="ref-dot dot-red"></div>
+                        <div class="ref-dot dot-green"></div>
+                        <div class="ref-dot dot-orange"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <!-- <section class="features-showcase section-padding">
+        <div class="container">
+            <div class="features-header">
+                <div class="features-title-wrapper">
+                    <span class="features-accent">✨</span>
+                    <h2 class="features-title">Everything You Need to Unleash Your Creativity</h2>
+                    <span class="features-accent">🎨</span>
+                </div>
+                <p class="features-subtitle">From beginner-friendly classes to advanced workshops, we provide all the tools and guidance for your artistic journey.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card feature-card-1">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">👨‍🎨</div>
+                    </div>
+                    <div class="feature-card-image">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=300&fit=crop" alt="Expert Instruction" loading="lazy">
+                        <div class="feature-overlay"></div>
+                    </div>
+                    <div class="feature-card-content">
+                        <h3 class="feature-card-title">Expert Instruction</h3>
+                        <p class="feature-card-description">Learn from experienced artists who provide personalized guidance and support.</p>
+                        <div class="feature-highlight"></div>
+                    </div>
+                </div>
+                <div class="feature-card feature-card-2">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">👥</div>
+                    </div>
+                    <div class="feature-card-image">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop" alt="Small Class Sizes" loading="lazy">
+                        <div class="feature-overlay"></div>
+                    </div>
+                    <div class="feature-card-content">
+                        <h3 class="feature-card-title">Small Class Sizes</h3>
+                        <p class="feature-card-description">Intimate settings ensure individual attention and meaningful connections.</p>
+                        <div class="feature-highlight"></div>
+                    </div>
+                </div>
+                <div class="feature-card feature-card-3">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">⏰</div>
+                    </div>
+                    <div class="feature-card-image">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop" alt="Flexible Scheduling" loading="lazy">
+                        <div class="feature-overlay"></div>
+                    </div>
+                    <div class="feature-card-content">
+                        <h3 class="feature-card-title">Flexible Scheduling</h3>
+                        <p class="feature-card-description">Classes and workshops that fit your busy lifestyle.</p>
+                        <div class="feature-highlight"></div>
+                    </div>
+                </div>
+                <div class="feature-card feature-card-4">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">📈</div>
+                    </div>
+                    <div class="feature-card-image">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop" alt="Progress Tracking" loading="lazy">
+                        <div class="feature-overlay"></div>
+                    </div>
+                    <div class="feature-card-content">
+                        <h3 class="feature-card-title">Progress Tracking</h3>
+                        <p class="feature-card-description">See your artistic skills grow with each class and project.</p>
+                        <div class="feature-highlight"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Results Section -->
+<!--     <section class="results-section section-padding">
+        <div class="container">
+            <div class="results-content">
+                <h2 class="results-title">Proven Results, Real Impact</h2>
+                <div class="results-stats">
+                    <div class="result-stat">
+                        <div class="result-number">500+</div>
+                        <div class="result-label">Happy Artists</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-number">50+</div>
+                        <div class="result-label">Workshops</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-number">4.9★</div>
+                        <div class="result-label">Average Rating</div>
+                    </div>
+                </div>
+                <div class="results-actions">
+                    <a href="#contact" class="btn btn-primary">Visit Studio</a>
+                    <a href="#gallery" class="btn btn-secondary">Explore Gallery</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About ArtiSpark</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead-text">At ArtiSpark, we believe that everyone has an artist within them, waiting to be discovered and nurtured.</p>
+                    <p>Our studio is a welcoming space where creativity flourishes, connections are made, and artistic skills are crafted with care and passion. Whether you're a child taking your first steps into the world of art, an adult exploring a new hobby, or a group looking for a unique experience, we're here to guide and inspire you.</p>
+                    <p>Located in the heart of Australia, ArtiSpark brings together a community of artists, learners, and creative souls. Our small class sizes ensure personalised attention, while our diverse range of workshops caters to all interests and skill levels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section-padding">
+        <div class="grain-overlay"></div>
+        <div class="container">
+            <div class="section-header-minimal">
+                <h2 class="section-title-minimal">OUR SERVICES</h2>
+                <p class="section-intro-text">TAKE A DEEP BREATH</p>
+                <p class="section-subtitle-minimal">Your creative journey begins here. We've established a space where your artistic potential can flourish, guided by our experienced instructors and a supportive community.</p>
+            </div>
+            
+            <div class="pebble-services-container">
+                <div class="pebble-services-wrapper">
+                    <!-- Service 1 -->
+                    <div class="pebble-item">
+                        <div class="pebble-shape shape-5">
+                            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=800&fit=crop" alt="Children's Art Classes">
+                        </div>
+                        <div class="pebble-content">
+                            <h3 class="pebble-title">CHILDREN'S ART CLASSES</h3>
+                            <p class="pebble-desc">Small, nurturing classes designed to build confidence and creativity in young artists. Perfect for developing essential skills while having fun.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="pebble-item">
+                        <div class="pebble-shape shape-6">
+                            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=800&fit=crop" alt="Paint 'n Sip">
+                        </div>
+                        <div class="pebble-content">
+                            <h3 class="pebble-title">PAINT 'N SIP</h3>
+                            <p class="pebble-desc">A relaxing guided painting experience perfect for groups. No prior experience needed—just bring your enthusiasm and enjoy the process.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="pebble-item">
+                        <div class="pebble-shape shape-5">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=800&fit=crop" alt="Mosaic 'n Sip">
+                        </div>
+                        <div class="pebble-content">
+                            <h3 class="pebble-title">MOSAIC 'N SIP</h3>
+                            <p class="pebble-desc">Create unique garden art while enjoying great company. Perfect for small groups, all materials provided for your creative project.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="pebble-item">
+                        <div class="pebble-shape shape-6">
+                            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&h=800&fit=crop" alt="Adult Workshops">
+                        </div>
+                        <div class="pebble-content">
+                            <h3 class="pebble-title">ADULT WORKSHOPS</h3>
+                            <p class="pebble-desc">Explore various artistic techniques from painting to mixed media. Discover your creative passion in a supportive studio environment.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="pebble-item">
+                        <div class="pebble-shape shape-5">
+                            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=800&fit=crop" alt="School Programs">
+                        </div>
+                        <div class="pebble-content">
+                            <h3 class="pebble-title">SCHOOL PROGRAMS</h3>
+                            <p class="pebble-desc">Keep young minds engaged during holidays with our exciting art programs. Fun, educational, and creatively enriching activities.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="pebble-item">
+                        <div class="pebble-shape shape-6">
+                            <img src="https://img.freepik.com/free-photo/hand-painted-pottery-plate_23-2151949035.jpg?uid=R58342429&ga=GA1.1.1916532384.1768814171&semt=ais_hybrid&w=740&q=80" alt="Community Projects">
+                        </div>
+                        <div class="pebble-content">
+                            <h3 class="pebble-title">COMMUNITY PROJECTS</h3>
+                            <p class="pebble-desc">Join us in creating beautiful community art installations. Connect with neighbours while making a lasting impact on your local area.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="services-footer-minimal">
+                <a href="#contact" class="btn-minimal">MORE ABOUT OUR SERVICES —</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Gallery</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">A glimpse into our creative community</p>
+            </div>
+            <div class="masonry-grid" id="galleryGrid">
+                <div class="grid-sizer"></div>
+                <!-- Image Gallery Items -->
+                <div class="masonry-item gallery-item gallery-item-large">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=600&fit=crop" alt="Mosaic Art Workshop" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Mosaic Art Workshop</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop" alt="Paint 'n Sip Session" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Paint 'n Sip by the Pool</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop" alt="Group Painting Class" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Outdoor Painting Class</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=550&fit=crop" alt="Sunset Painting" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Beautiful Sunset Artwork</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=450&fit=crop" alt="Happy Artist" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Our Happy Artists</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item ">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=500&fit=crop" alt="Art Workshop Group" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Art Workshop Group</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=350&fit=crop" alt="Children's Art Class" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Children's Art Class</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop" alt="Student Artwork" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Student Artwork Showcase</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video Gallery Items -->
+                <div class="masonry-item gallery-item gallery-video">
+                    <div class="gallery-card">
+                        <div class="video-container">
+                            <div class="video-placeholder">
+                                <div class="play-button">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                        <path d="M24 20L40 30L24 40V20Z" fill="#7FB3A8"/>
+                                    </svg>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=500&fit=crop" alt="Video Thumbnail" class="video-thumbnail" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Paint 'n Sip Workshop Video</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item gallery-video">
+                    <div class="gallery-card">
+                        <div class="video-container">
+                            <div class="video-placeholder">
+                                <div class="play-button">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                        <path d="M24 20L40 30L24 40V20Z" fill="#7FB3A8"/>
+                                    </svg>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop" alt="Video Thumbnail" class="video-thumbnail" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Mosaic Art Tutorial</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=500&fit=crop" alt="Art Supplies" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Creative Art Supplies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item gallery-video">
+                    <div class="gallery-card">
+                        <div class="video-container">
+                            <div class="video-placeholder">
+                                <div class="play-button">
+                                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/>
+                                        <path d="M24 20L40 30L24 40V20Z" fill="#7FB3A8"/>
+                                    </svg>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=550&fit=crop" alt="Video Thumbnail" class="video-thumbnail" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Children's Art Class Highlights</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=450&fit=crop" alt="Finished Artwork" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Finished Masterpieces</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item gallery-item">
+                    <div class="gallery-card">
+                        <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=400&fit=crop" alt="Studio Atmosphere" class="gallery-image" loading="lazy">
+                        <div class="gallery-overlay">
+                            <p class="gallery-caption">Our Creative Studio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get in Touch</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">We'd love to hear from you</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3 class="contact-label">Location</h3>
+                        <p class="contact-text">48 XYZ Road<br>ABC DNDNS, SBS 324234<br>Melbourne, Australia</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 class="contact-label">Phone</h3>
+                        <p class="contact-text"><a href="tel:+61425814658">0000 000 000</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 class="contact-label">Email</h3>
+                        <p class="contact-text"><a href="mailto:info@artispark.com.au">info@artispark.com.au</a></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">Facebook</a>
+                        <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
+                        <a href="#" class="social-link" aria-label="WhatsApp">WhatsApp</a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="tel" id="phone" name="phone" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-input form-textarea" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo_artispark.jpg" alt="ArtiSpark Logo" class="footer-logo-img">
+                    <p class="footer-tagline">Create • Connect • Craft</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ArtiSpark. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
