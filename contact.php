@@ -3,15 +3,8 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
 
-// Gmail SMTP settings. Replace SMTP_PASSWORD with the 16-character Gmail App Password.
-const SMTP_HOST = 'smtp.gmail.com';
-const SMTP_PORT = 587;
-const SMTP_USERNAME = 'hostingartispark@gmail.com';
-const SMTP_PASSWORD = 'ssdg zlzt zpsi wzxf';
-const SMTP_FROM_EMAIL = 'hostingartispark@gmail.com';
-const SMTP_FROM_NAME = 'ArtiSpark';
-const ADMIN_EMAIL = 'info@artispark.com.au';
-const FALLBACK_SITE_URL = 'https://artispark.com.au';
+// SMTP settings live in config/config.php (gitignored). Copy config/config.sample.php to create it.
+require __DIR__ . '/config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(false, 'Method not allowed.', 405);

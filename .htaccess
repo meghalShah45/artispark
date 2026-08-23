@@ -1,0 +1,10 @@
+DirectoryIndex index.php index.html
+
+# Old static URLs -> new PHP pages
+Redirect 301 /index.html /
+Redirect 301 /gallery.html /gallery.php
+
+# Never serve JSON data files directly
+<FilesMatch "\.(json|lock)$">
+    Require all denied
+</FilesMatch>

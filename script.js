@@ -1,197 +1,60 @@
-// ============================================
-// Mobile Menu Toggle
-// ============================================
+// ArtiSpark — front-end behaviour (no dependencies)
 
-const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+// ---------- Mobile menu ----------
+const menuToggle = document.getElementById('mobileMenuToggle');
 const navMenu = document.getElementById('navMenu');
-const navLinks = document.querySelectorAll('.nav-link');
 
-mobileMenuToggle?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = navMenu.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+menuToggle?.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
 });
 
-function closeMobileMenu() {
-    navMenu?.classList.remove('active');
-    mobileMenuToggle?.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-navLinks.forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
-});
-
-document.addEventListener('click', (e) => {
-    if (navMenu?.classList.contains('active') && 
-        !navMenu.contains(e.target) && 
-        !mobileMenuToggle?.contains(e.target)) {
-        closeMobileMenu();
-    }
-});
-
-// ============================================
-// Navbar Scroll Effect
-// ============================================
-
-const navbar = document.getElementById('navbar');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// ============================================
-// Smooth Scroll for Navigation Links
-// ============================================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
+navMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+        menuToggle?.classList.remove('active');
+        navMenu.classList.remove('active');
     });
 });
 
-// ============================================
-// Mobile Hero - Auto-scroll background images
-// ============================================
+// ---------- Active nav link while scrolling ----------
+const sections = [...document.querySelectorAll('section[id]')];
+const navLinks = [...document.querySelectorAll('.nav-link[href^="#"]')];
 
-function initMobileHeroBgCycle() {
-    const heroBg = document.querySelector('.hero .hero-background');
-    const capsuleImgs = document.querySelectorAll('.hero .capsule-item img');
-    if (!heroBg || !window.matchMedia('(max-width: 768px)').matches) return;
-
-    const urls = Array.from(capsuleImgs).map(img => img.src).filter(Boolean);
-    if (urls.length === 0) return;
-
-    let index = 0;
-    setInterval(() => {
-        index = (index + 1) % urls.length;
-        heroBg.style.backgroundImage = `url('${urls[index]}')`;
-    }, 4000);
+function updateActiveNav() {
+    const y = window.scrollY + 140;
+    let current = '';
+    sections.forEach((s) => { if (s.offsetTop <= y) current = s.id; });
+    navLinks.forEach((l) => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
 }
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
 
-document.addEventListener('DOMContentLoaded', initMobileHeroBgCycle);
-
-// ============================================
-// Masonry Grid Layout using Masonry.js
-// ============================================
-
-let masonryInstances = [];
-
-function initMasonryGrid() {
-    // Destroy existing instances
-    masonryInstances.forEach(instance => {
-        if (instance) instance.destroy();
-    });
-    masonryInstances = [];
-    
-    // Initialize Masonry for all grids
-    const grids = document.querySelectorAll('.masonry-grid');
-    
-    grids.forEach((grid) => {
-        // Wait a bit for layout to settle
-        setTimeout(() => {
-            const msnry = new Masonry(grid, {
-                itemSelector: '.masonry-item',
-                columnWidth: '.grid-sizer',
-                percentPosition: true,
-                gutter: 8, // 0.5rem = 8px
-                fitWidth: false,
-                horizontalOrder: true
-            });
-            
-            masonryInstances.push(msnry);
-            
-            // Layout again after images load
-            if (typeof imagesLoaded !== 'undefined') {
-                imagesLoaded(grid).on('progress', function() {
-                    msnry.layout();
-                });
-                
-                imagesLoaded(grid).on('always', function() {
-                    msnry.layout();
-                });
+// ---------- Reveal on scroll ----------
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
             }
-            
-            // Force layout after a short delay to ensure proper distribution
-            setTimeout(() => {
-                msnry.layout();
-            }, 300);
-        }, 100);
-    });
+        });
+    }, { threshold: 0.12 });
+    revealEls.forEach((el) => io.observe(el));
+} else {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
 }
 
-// Initialize masonry on load and DOM ready
-document.addEventListener('DOMContentLoaded', () => {
-    if (typeof Masonry !== 'undefined') {
-        initMasonryGrid();
-    }
-});
-
-window.addEventListener('load', () => {
-    if (typeof Masonry !== 'undefined') {
-        initMasonryGrid();
-    }
-});
-
-// Recalculate on resize (with debounce)
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        // Reinitialize on resize to recalculate column widths
-        initMasonryGrid();
-    }, 250);
-});
-
-// ============================================
-// Intersection Observer for Fade-in Animations
-// ============================================
-
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe sections and cards
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    const cards = document.querySelectorAll('.service-card, .gallery-card');
-    
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-    
-    cards.forEach(card => {
-        observer.observe(card);
+// ---------- Service tiles: tap to open on touch devices ----------
+document.querySelectorAll('.service-tile').forEach((tile) => {
+    tile.addEventListener('click', () => {
+        const open = tile.classList.contains('is-open');
+        document.querySelectorAll('.service-tile.is-open').forEach((t) => t.classList.remove('is-open'));
+        if (!open) tile.classList.add('is-open');
     });
 });
 
-// ============================================
-// Contact Form Handling
-// ============================================
-
+// ---------- Contact form ----------
 const contactForm = document.getElementById('contactForm');
 const contactSubmit = document.getElementById('contactSubmit');
 const contactStatus = document.getElementById('contactStatus');
@@ -200,7 +63,6 @@ contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(contactForm);
-
     contactSubmit.disabled = true;
     contactSubmit.textContent = 'Sending...';
     contactStatus.textContent = '';
@@ -210,24 +72,18 @@ contactForm?.addEventListener('submit', async (e) => {
         const response = await fetch(contactForm.action, {
             method: 'POST',
             body: formData,
-            headers: {
-                Accept: 'application/json'
-            }
+            headers: { Accept: 'application/json' }
         });
-
         const responseText = await response.text();
         let result = {};
-
         try {
             result = responseText ? JSON.parse(responseText) : {};
         } catch (parseError) {
             throw new Error('The server returned an unexpected response. Please check the contact form setup.');
         }
-
         if (!response.ok || !result.success) {
             throw new Error(result.message || 'Something went wrong. Please try again.');
         }
-
         contactStatus.textContent = result.message || 'Thank you. Your inquiry has been sent successfully.';
         contactStatus.classList.add('is-success');
         contactForm.reset();
@@ -240,206 +96,20 @@ contactForm?.addEventListener('submit', async (e) => {
     }
 });
 
-// ============================================
-// Gallery Lightbox and Video Handling
-// ============================================
-
-const galleryItems = document.querySelectorAll('.gallery-item');
-
-galleryItems.forEach(item => {
-    item.addEventListener('click', () => {
-        // Check if it's a video item
-        const videoPlaceholder = item.querySelector('.video-placeholder');
-        if (videoPlaceholder) {
-            // Handle video click - you can replace this with actual video modal
-            const caption = item.querySelector('.gallery-caption')?.textContent || 'Video';
-            alert(`Video: ${caption}\n\nIn production, this would open a video player or modal.`);
-            return;
-        }
-        
-        // For images, you can implement a lightbox here
-        const card = item.querySelector('.gallery-card');
-        if (card) {
-            card.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                card.style.transform = '';
-            }, 200);
-        }
-    });
-});
-
-// ============================================
-// Lazy Loading Images (if you add real images later)
-// ============================================
-
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.classList.add('loaded');
-                    imageObserver.unobserve(img);
-                }
-            }
-        });
-    });
-    
-    // Observe all images with data-src attribute
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-}
-
-// ============================================
-// Active Navigation Link Highlighting
-// ============================================
-
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop - 100) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', updateActiveNavLink);
-updateActiveNavLink(); // Initial call
-
-// ============================================
-// Performance: Debounce function
-// ============================================
-
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// ============================================
-// Pebble Services Horizontal Scroll Interaction
-// ============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.pebble-services-container');
-    if (container) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        container.addEventListener('mousedown', (e) => {
-            isDown = true;
-            container.classList.add('active');
-            startX = e.pageX - container.offsetLeft;
-            scrollLeft = container.scrollLeft;
-        });
-
-        container.addEventListener('mouseleave', () => {
-            isDown = false;
-            container.classList.remove('active');
-        });
-
-        container.addEventListener('mouseup', () => {
-            isDown = false;
-            container.classList.remove('active');
-        });
-
-        container.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - container.offsetLeft;
-            const walk = (x - startX) * 2;
-            container.scrollLeft = scrollLeft - walk;
-        });
+// ---------- Contact map (Leaflet + OpenStreetMap) ----------
+const mapEl = document.getElementById('contactMap');
+if (mapEl && window.L) {
+    let markers = [];
+    try { markers = JSON.parse(mapEl.dataset.markers || '[]'); } catch (e) { markers = []; }
+    if (markers.length) {
+        const map = L.map(mapEl, { scrollWheelZoom: false });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        const group = L.featureGroup(markers.map((m) =>
+            L.marker([Number(m.lat), Number(m.lng)]).bindPopup(m.label || '')
+        )).addTo(map);
+        map.fitBounds(group.getBounds().pad(0.35));
     }
-});
-
-// ============================================
-// Paint Canvas Animation (optional)
-// ============================================
-
-const paintCanvas = document.getElementById('paintCanvas');
-if (paintCanvas) {
-    const ctx = paintCanvas.getContext('2d');
-    paintCanvas.width = window.innerWidth;
-    paintCanvas.height = window.innerHeight;
-    
-    let particles = [];
-    const particleCount = 30;
-    
-    class Particle {
-        constructor() {
-            this.x = Math.random() * paintCanvas.width;
-            this.y = Math.random() * paintCanvas.height;
-            this.size = Math.random() * 3 + 1;
-            this.speedX = Math.random() * 2 - 1;
-            this.speedY = Math.random() * 2 - 1;
-            this.color = Math.random() > 0.5 ? 'rgba(127, 179, 168, 0.3)' : 'rgba(212, 175, 55, 0.3)';
-        }
-        
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            
-            if (this.x > paintCanvas.width) this.x = 0;
-            if (this.x < 0) this.x = paintCanvas.width;
-            if (this.y > paintCanvas.height) this.y = 0;
-            if (this.y < 0) this.y = paintCanvas.height;
-        }
-        
-        draw() {
-            ctx.fillStyle = this.color;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-    
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-    
-    function animate() {
-        ctx.clearRect(0, 0, paintCanvas.width, paintCanvas.height);
-        particles.forEach(particle => {
-            particle.update();
-            particle.draw();
-        });
-        requestAnimationFrame(animate);
-    }
-    
-    animate();
-    
-    window.addEventListener('resize', () => {
-        paintCanvas.width = window.innerWidth;
-        paintCanvas.height = window.innerHeight;
-    });
 }
-
-// ============================================
-// Console Welcome Message
-// ============================================
-
-console.log('%c Welcome to ArtiSpark! ', 'background: #7FB3A8; color: #fff; font-size: 20px; padding: 10px;');
-console.log('%c Create • Connect • Craft ', 'color: #D4AF37; font-size: 14px;');
