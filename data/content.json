@@ -1,0 +1,140 @@
+{
+    "meta": {
+        "title": "ArtiSpark - Create, Connect, Craft",
+        "description": "Join Artispark's art classes in Wantirna. Small groups, age-appropriate lessons, all materials provided, and fun weekly sessions for creative young artists."
+    },
+    "hero": {
+        "title": "Spark Your Creative Spirit",
+        "subtitle": "Artispark is a creative studio dedicated to inspiring artists of all ages. From beginners to hobbyists, we offer thoughtfully designed classes and workshops that nurture creativity, build skills, and bring the joy of art to everyone.",
+        "cta_primary": {
+            "label": "Start Today",
+            "href": "#services"
+        },
+        "cta_secondary": {
+            "label": "Registration",
+            "href": "#contact"
+        },
+        "banner_images": [
+            {
+                "src": "assets/images/banner/1.png",
+                "alt": "Art student"
+            },
+            {
+                "src": "assets/images/banner/2.png",
+                "alt": "Crafting"
+            },
+            {
+                "src": "assets/images/banner/3.png",
+                "alt": "Painting"
+            },
+            {
+                "src": "assets/images/banner/4.png",
+                "alt": "Artist at work"
+            },
+            {
+                "src": "assets/images/banner/5.png",
+                "alt": "Pottery"
+            },
+            {
+                "src": "assets/images/banner/6.png",
+                "alt": "Child painting"
+            }
+        ]
+    },
+    "about": {
+        "heading": "About ArtiSpark",
+        "image": {
+            "src": "assets/images/about_us.jpeg",
+            "alt": "About ArtiSpark"
+        },
+        "body": "Artispark was founded by a creative duo – Goral Shah and Prachi Shah – brought together by their shared passion for art and creativity.\n\nGoral is a digital artist who beautifully blends traditional art with modern digital techniques, bringing innovation and fresh perspectives into the creative space. Her approach focuses on making art relevant in today’s digital world while keeping its artistic essence alive.\n\nPrachi, a trained civil engineer by profession, brings precision, structure, and deep artistic skill to Artispark. With her strong foundation in drawing and painting, she helps students build solid fundamentals while nurturing their creativity and confidence.\n\nTogether, Goral and Prachi have created a vibrant community where artists of all ages can explore their creativity, learn new skills, and connect with others who share their passion for art. Their combined expertise ensures that every class and workshop at Artispark is thoughtfully designed to inspire and empower artists on their creative journeys.\n\nOur home studio is a welcoming space where creativity flourishes, connections are made, and artistic skills are crafted with care and passion. Whether you're a child taking your first steps into the world of art, an adult exploring a new hobby, or a group looking for a unique experience, we're here to guide and inspire you."
+    },
+    "services": {
+        "heading": "OUR SERVICES",
+        "intro": "TAKE A DEEP BREATH",
+        "subtitle": "Your creative journey begins here. We've established a space where your artistic potential can flourish, guided by our experienced instructors and a supportive community.",
+        "items": [
+            {
+                "id": "svc_kids",
+                "title": "CHILDREN'S ART CLASSES",
+                "description": "We run engaging kids’ art classes from our home studios in Wantirna and Springvale. Our sessions provide a warm, encouraging environment where young artists can explore their creativity while learning essential art skills.\nOur classes are thoughtfully designed to build confidence, encourage self-expression, and develop creativity through drawing, painting, and fun art techniques. We focus not just on creating artwork, but on helping children enjoy the process, think creatively, and feel proud of what they create.",
+                "image": {
+                    "src": "assets/images/services/Childrens art classes.png",
+                    "alt": "Kids Art Classes in Wantirna"
+                }
+            },
+            {
+                "id": "svc_sip",
+                "title": "PAINT 'N SIP",
+                "description": "Our Paint & Sip sessions are relaxed, guided art experiences perfect for groups, parties, and special occasions. No prior art experience is needed – just bring your enthusiasm, unwind, and enjoy the creative process.\nWe provide step-by-step guidance in a fun and supportive atmosphere, making it easy for everyone to create their own masterpiece while socialising and having a great time.",
+                "image": {
+                    "src": "assets/images/services/Paint n Sip.png",
+                    "alt": "Paint 'n Sip"
+                }
+            },
+            {
+                "id": "svc_mandala",
+                "title": "MINDFUL MANDALAS",
+                "description": "Our Mindful Mandalas sessions offer a calming and enriching artistic journey where you learn beautiful patterns while fully immersing yourself in the creative process. This structured set of 5 sessions begins with basic mandala patterns and gradually guides you toward creating your own detailed mandala canvas painting.\nThese sessions are designed to promote focus, patience, and mindfulness while helping you build confidence in pattern creation and design techniques. Whether you are a beginner or an art enthusiast, this workshop provides a relaxing space to learn and create at your own pace.",
+                "image": {
+                    "src": "assets/images/services/Mindful Mandalas.jpeg",
+                    "alt": "Mosaic 'n Sip"
+                }
+            },
+            {
+                "id": "svc_adult",
+                "title": "ADULT WORKSHOPS",
+                "description": "Explore various artistic techniques from painting to mixed media. Discover your creative passion in a supportive studio environment.",
+                "image": {
+                    "src": "assets/images/services/adult.png",
+                    "alt": "Adult Workshops"
+                }
+            },
+            {
+                "id": "svc_party",
+                "title": "PAINT PARTIES",
+                "description": "Make your events truly memorable with our guided paint sessions, designed to bring creativity, fun, and connection to your special occasions. After all, who doesn’t love creating something they can proudly call their own?\nWe bring the complete art experience to you – all materials and supplies are provided, so you can simply relax, enjoy the moment, and create beautiful memories with us.",
+                "image": {
+                    "src": "assets/images/services/Paint Parties.png",
+                    "alt": "School Programs"
+                }
+            }
+        ]
+    },
+    "testimonials": {
+        "heading": "What Our Artists Say",
+        "subtitle": "Stories from our creative community",
+        "items": [
+            {
+                "id": "tst_shweta",
+                "quote": "I enrolled my son in Artispark art classes run by Goral and Prachi, hoping it might help channel his hyperactivity. In the first few sessions, I didn’t notice much change. However, as the classes continued, I began to see a real difference. He now sits in one place for longer periods, his concentration has improved, and he seems noticeably calmer. It’s been a very positive experience for him, and I’m truly grateful to Goral and Prachi for their patience and guidance.",
+                "author": "Shweta"
+            },
+            {
+                "id": "tst_tiana",
+                "quote": "I attended a Paint n Sip session run by Artispark at Mulgrave Country Club, and it was a fantastic experience. Both instructors were incredibly patient and friendly, creating a relaxed and enjoyable atmosphere throughout the session.\n\nWe were guided to create a floral textured artwork—something I had never tried before. With their support and clear instructions, I was able to explore new techniques and use colors in a way I wouldn’t have thought of on my own.\n\nI walked away not only with a beautiful piece of art but also with a great sense of accomplishment. Highly recommend this experience to anyone looking to try something creative and fun!",
+                "author": "Tiana"
+            }
+        ]
+    },
+    "gallery": {
+        "heading": "Gallery",
+        "subtitle": "A glimpse into our creative community",
+        "enabled": true,
+        "items": []
+    },
+    "contact": {
+        "heading": "Get in Touch",
+        "subtitle": "We'd love to hear from you",
+        "location": "Wantirna, Cranbourne, Online",
+        "phones": [
+            "+61 433 165 815",
+            "+61 491 707 108"
+        ],
+        "email": "info@artispark.com.au"
+    },
+    "footer": {
+        "tagline": "Create • Connect • Craft",
+        "copyright": "© 2026 ArtiSpark. All rights reserved."
+    }
+}

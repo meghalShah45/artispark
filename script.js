@@ -6,17 +6,29 @@ const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-mobileMenuToggle?.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active');
+mobileMenuToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.toggle('active');
+    mobileMenuToggle.classList.toggle('active', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
-// Close mobile menu when clicking a link
+function closeMobileMenu() {
+    navMenu?.classList.remove('active');
+    mobileMenuToggle?.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
 navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-    });
+    link.addEventListener('click', closeMobileMenu);
+});
+
+document.addEventListener('click', (e) => {
+    if (navMenu?.classList.contains('active') && 
+        !navMenu.contains(e.target) && 
+        !mobileMenuToggle?.contains(e.target)) {
+        closeMobileMenu();
+    }
 });
 
 // ============================================
@@ -50,6 +62,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ============================================
+// Mobile Hero - Auto-scroll background images
+// ============================================
+
+function initMobileHeroBgCycle() {
+    const heroBg = document.querySelector('.hero .hero-background');
+    const capsuleImgs = document.querySelectorAll('.hero .capsule-item img');
+    if (!heroBg || !window.matchMedia('(max-width: 768px)').matches) return;
+
+    const urls = Array.from(capsuleImgs).map(img => img.src).filter(Boolean);
+    if (urls.length === 0) return;
+
+    let index = 0;
+    setInterval(() => {
+        index = (index + 1) % urls.length;
+        heroBg.style.backgroundImage = `url('${urls[index]}')`;
+    }, 4000);
+}
+
+document.addEventListener('DOMContentLoaded', initMobileHeroBgCycle);
 
 // ============================================
 // Masonry Grid Layout using Masonry.js
@@ -160,23 +193,51 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 
 const contactForm = document.getElementById('contactForm');
+const contactSubmit = document.getElementById('contactSubmit');
+const contactStatus = document.getElementById('contactStatus');
 
-contactForm?.addEventListener('submit', (e) => {
+contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // Get form data
+
     const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    // Here you would typically send the data to a server
-    // For now, we'll just show a success message
-    console.log('Form submitted:', data);
-    
-    // Show success message (you can customize this)
-    alert('Thank you for your message! We\'ll get back to you soon.');
-    
-    // Reset form
-    contactForm.reset();
+
+    contactSubmit.disabled = true;
+    contactSubmit.textContent = 'Sending...';
+    contactStatus.textContent = '';
+    contactStatus.className = 'form-status';
+
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                Accept: 'application/json'
+            }
+        });
+
+        const responseText = await response.text();
+        let result = {};
+
+        try {
+            result = responseText ? JSON.parse(responseText) : {};
+        } catch (parseError) {
+            throw new Error('The server returned an unexpected response. Please check the contact form setup.');
+        }
+
+        if (!response.ok || !result.success) {
+            throw new Error(result.message || 'Something went wrong. Please try again.');
+        }
+
+        contactStatus.textContent = result.message || 'Thank you. Your inquiry has been sent successfully.';
+        contactStatus.classList.add('is-success');
+        contactForm.reset();
+    } catch (error) {
+        contactStatus.textContent = error.message || 'Sorry, your message could not be sent right now.';
+        contactStatus.classList.add('is-error');
+    } finally {
+        contactSubmit.disabled = false;
+        contactSubmit.textContent = 'Send Message';
+    }
 });
 
 // ============================================
