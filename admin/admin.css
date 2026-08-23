@@ -1,0 +1,137 @@
+/* ArtiSpark admin panel — standalone stylesheet (site palette, none of the site's layout CSS) */
+:root {
+    --teal: #7fb3a8;
+    --teal-dark: #5f9488;
+    --gold: #d9a547;
+    --ink: #2f302f;
+    --muted: #6b7370;
+    --bg: #faf8f5;
+    --card: #ffffff;
+    --line: #e4ded4;
+    --danger: #b8524a;
+}
+
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* --- Top bar --- */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--ink);
+    color: #fff;
+    padding: 10px 20px;
+}
+.topbar-brand { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.topbar-logo { height: 34px; width: 34px; object-fit: cover; border-radius: 50%; background: #fff; }
+.topbar-nav { display: flex; align-items: center; gap: 18px; }
+.topbar-nav a { color: #fff; text-decoration: none; }
+.topbar-nav a:hover { text-decoration: underline; }
+.inline-form { display: inline; margin: 0; }
+.btn-link {
+    background: none; border: none; color: #f3c96b; cursor: pointer;
+    font-size: 16px; padding: 0; font-family: inherit;
+}
+.btn-link:hover { text-decoration: underline; }
+
+/* --- Layout --- */
+.layout { display: flex; min-height: calc(100vh - 54px); }
+.sidebar { width: 210px; background: #f1ece3; border-right: 1px solid var(--line); padding: 18px 0; flex-shrink: 0; }
+.sidebar ul { list-style: none; margin: 0; padding: 0; }
+.sidebar a {
+    display: block; padding: 10px 20px; color: var(--ink); text-decoration: none;
+}
+.sidebar a:hover { background: #e8e1d4; }
+.sidebar a.active { background: var(--teal); color: #fff; font-weight: 600; }
+.content { flex: 1; padding: 26px 34px 60px; max-width: 980px; }
+.content h1 { margin: 0 0 6px; font-size: 26px; }
+.lead { color: var(--muted); margin-top: 0; }
+
+/* --- Flash messages --- */
+.flash { padding: 12px 16px; border-radius: 6px; margin: 14px 0; }
+.flash-ok { background: #e4f0ec; border: 1px solid var(--teal); color: #2c584e; }
+.flash-err { background: #f7e6e4; border: 1px solid var(--danger); color: #7c322c; }
+
+/* --- Dashboard cards --- */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; margin-top: 18px; }
+.card {
+    display: block; background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 18px 20px; text-decoration: none; color: var(--ink);
+    transition: border-color .15s, transform .15s;
+}
+.card:hover { border-color: var(--teal); transform: translateY(-2px); }
+.card h2 { margin: 0 0 8px; font-size: 19px; }
+.card p { margin: 0; color: var(--muted); font-size: 14px; }
+.badge {
+    display: inline-block; background: var(--teal); color: #fff; border-radius: 999px;
+    font-size: 13px; padding: 1px 9px; vertical-align: 2px;
+}
+
+/* --- Forms --- */
+form.editor { max-width: 760px; }
+label { display: block; font-weight: 600; margin: 18px 0 6px; }
+.hint { font-weight: 400; color: var(--muted); font-size: 13px; margin: 2px 0 6px; }
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px;
+    font-size: 16px; font-family: inherit; background: #fff; color: var(--ink);
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus { outline: 2px solid var(--teal); border-color: var(--teal); }
+textarea { min-height: 120px; resize: vertical; }
+textarea.tall { min-height: 220px; }
+input[type="file"] { margin: 4px 0; }
+
+.btn {
+    display: inline-block; background: var(--teal-dark); color: #fff; border: none;
+    border-radius: 6px; padding: 11px 22px; font-size: 16px; cursor: pointer; margin-top: 18px;
+    font-family: inherit;
+}
+.btn:hover { background: var(--teal); }
+.btn-small { padding: 6px 12px; font-size: 14px; margin: 0; }
+.btn-danger { background: var(--danger); }
+.btn-danger:hover { background: #a03e37; }
+.btn-ghost { background: #e8e1d4; color: var(--ink); }
+.btn-ghost:hover { background: #ddd3c0; }
+
+/* --- Item lists (services / testimonials / gallery) --- */
+.item-box {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 18px 20px; margin-bottom: 18px;
+}
+.item-box h2 { margin: 0 0 4px; font-size: 18px; }
+.item-toolbar { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.item-box label { margin-top: 12px; }
+.thumb { max-width: 140px; max-height: 100px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); display: block; }
+.thumb-row { display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-top: 6px; }
+
+/* --- Gallery grid --- */
+.gallery-admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+.gallery-admin-grid .item-box { margin-bottom: 0; padding: 12px; }
+.gallery-admin-grid .thumb { max-width: 100%; width: 100%; max-height: 150px; }
+
+/* --- Login --- */
+.login-body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+.login-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 34px 38px; width: 100%; max-width: 380px; text-align: center;
+}
+.login-logo { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; }
+.login-card h1 { font-size: 22px; margin: 12px 0 4px; }
+.login-card form { text-align: left; }
+.login-card .btn { width: 100%; }
+
+/* --- Responsive --- */
+@media (max-width: 720px) {
+    .layout { flex-direction: column; }
+    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--line); padding: 0; }
+    .sidebar ul { display: flex; overflow-x: auto; }
+    .sidebar a { white-space: nowrap; }
+    .content { padding: 20px 16px 50px; }
+}

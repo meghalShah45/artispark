@@ -1,0 +1,13 @@
+# Secrets — never commit
+config/config.php
+
+# Live content (edited by the client on the server; sample is committed instead)
+data/*.json
+!data/content.sample.json
+
+# Client-uploaded images
+assets/images/uploads/*
+!assets/images/uploads/.htaccess
+
+# OS noise
+.DS_Store
