@@ -81,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>Log in · ArtiSpark Admin</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="stylesheet" href="admin.css">
 </head>
 <body class="login-body">

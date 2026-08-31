@@ -92,6 +92,7 @@ function admin_page_start(string $title, string $active = ''): void
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title><?= e($title) ?> · ArtiSpark Admin</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="stylesheet" href="admin.css">
 </head>
 <body>

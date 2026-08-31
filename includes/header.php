@@ -26,6 +26,7 @@ $navItems[] = ['#contact', 'Contact'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?= e($metaDescription) ?>">
     <title><?= e($pageTitle) ?></title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&family=Raleway:wght@400;600&family=Gentium+Basic:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">

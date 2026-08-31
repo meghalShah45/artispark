@@ -37,7 +37,7 @@ $galleryPreview = $galleryItems
             <div class="section-header reveal">
                 <p class="section-intro"><?= e($c['services']['intro'] ?? '') ?></p>
                 <h2 class="section-title"><?= e($c['services']['heading'] ?? '') ?></h2>
-                <div class="title-underline"></div>
+               
                 <p class="section-quote">"<?= e($c['services']['subtitle'] ?? '') ?>"</p>
             </div>
             <div class="services-grid">
@@ -62,7 +62,7 @@ $galleryPreview = $galleryItems
         <div class="container">
             <div class="section-header reveal">
                 <h2 class="section-title"><?= e($c['about']['heading'] ?? '') ?></h2>
-                <div class="title-underline"></div>
+               
             </div>
             <div class="about-content reveal">
                 <div class="about-image">
@@ -83,7 +83,7 @@ $galleryPreview = $galleryItems
             <div class="section-header reveal">
                 <p class="section-intro"><?= e($c['team']['intro'] ?? '') ?></p>
                 <h2 class="section-title"><?= e($c['team']['heading'] ?? '') ?></h2>
-                <div class="title-underline"></div>
+               
             </div>
             <div class="team-grid">
 <?php foreach ($c['team']['members'] as $member): ?>
@@ -108,7 +108,7 @@ $galleryPreview = $galleryItems
             <div class="section-header reveal">
                 <p class="section-intro"><?= e($c['testimonials']['subtitle'] ?? '') ?></p>
                 <h2 class="section-title"><?= e($c['testimonials']['heading'] ?? '') ?></h2>
-                <div class="title-underline"></div>
+               
             </div>
             <div class="testimonials-grid">
 <?php foreach ($c['testimonials']['items'] as $testimonial): ?>
@@ -130,7 +130,7 @@ $galleryPreview = $galleryItems
             <div class="section-header reveal">
                 <p class="section-intro"><?= e($c['gallery']['intro'] ?? '') ?></p>
                 <h2 class="section-title"><?= e($c['gallery']['heading'] ?? 'Gallery') ?></h2>
-                <div class="title-underline"></div>
+               
             </div>
             <div class="gallery-grid reveal">
 <?php foreach ($galleryPreview as $item): ?>
@@ -154,7 +154,7 @@ $galleryPreview = $galleryItems
         <div class="container">
             <div class="section-header reveal">
                 <h2 class="section-title"><?= e($c['contact']['heading'] ?? '') ?></h2>
-                <div class="title-underline"></div>
+               
                 <p class="section-subtitle"><?= e($c['contact']['subtitle'] ?? '') ?></p>
             </div>
 <?php $markers = array_values(array_filter($c["contact"]["map"]["markers"] ?? [], fn($m) => isset($m["lat"], $m["lng"])));
