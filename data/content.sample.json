@@ -128,7 +128,8 @@
                     "alt": "Prachi Shah"
                 }
             }
-        ]
+        ],
+        "visible": true
     },
     "testimonials": {
         "heading": "What Our Artists Say",
@@ -182,5 +183,36 @@
     "footer": {
         "tagline": "Create • Connect • Craft",
         "copyright": "© 2026 ArtiSpark. All rights reserved."
+    },
+    "nav": {
+        "logo_height": 88,
+        "link_size": 13,
+        "heading_size": 32,
+        "items": [
+            {
+                "id": "about",
+                "label": "About"
+            },
+            {
+                "id": "services",
+                "label": "Services"
+            },
+            {
+                "id": "team",
+                "label": "Team"
+            },
+            {
+                "id": "testimonials",
+                "label": "Testimonials"
+            },
+            {
+                "id": "gallery",
+                "label": "Gallery"
+            },
+            {
+                "id": "contact",
+                "label": "Contact"
+            }
+        ]
     }
 }

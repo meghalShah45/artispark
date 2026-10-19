@@ -6,6 +6,7 @@ require __DIR__ . '/_bootstrap.php';
 $c = load_content();
 
 $sections = [
+    ['href' => 'edit-header.php', 'title' => 'Header & Menu', 'desc' => 'Logo size, menu names and order, heading sizes.'],
     ['href' => 'edit-hero.php', 'title' => 'Hero', 'desc' => 'Main headline, intro text, buttons and the 6 banner photos.'],
     ['href' => 'edit-about.php', 'title' => 'About', 'desc' => 'The "About ArtiSpark" story and photo.'],
     ['href' => 'edit-services.php', 'title' => 'Services', 'desc' => 'Add, edit, reorder or remove service cards.', 'count' => count($c['services']['items'] ?? [])],

@@ -1,6 +1,10 @@
 <?php
 declare(strict_types=1);
 
+session_name('artispark_site');
+session_set_cookie_params(['httponly' => true, 'samesite' => 'Lax', 'path' => '/']);
+session_start();
+
 header('Content-Type: application/json; charset=utf-8');
 
 // SMTP settings live in config/config.php (gitignored). Copy config/config.sample.php to create it.
@@ -245,6 +249,20 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 if (strlen($name) > 120 || strlen($email) > 180 || strlen($phone) > 60 || strlen($message) > 5000) {
     respond(false, 'Please shorten your inquiry and try again.', 422);
+}
+
+// CAPTCHA: one-time code issued by captcha.php, valid for 15 minutes.
+$captcha = field('captcha');
+$captchaHash = $_SESSION['captcha_hash'] ?? '';
+$captchaTime = $_SESSION['captcha_time'] ?? 0;
+unset($_SESSION['captcha_hash'], $_SESSION['captcha_time']);
+if (
+    $captcha === ''
+    || $captchaHash === ''
+    || time() - $captchaTime > 15 * 60
+    || !password_verify(strtolower($captcha), $captchaHash)
+) {
+    respond(false, 'The verification code was missing or incorrect. Please try the new code.', 422);
 }
 
 $safeName = clean_header_value($name);

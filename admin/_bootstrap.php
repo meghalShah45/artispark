@@ -75,6 +75,7 @@ function admin_page_start(string $title, string $active = ''): void
 {
     $links = [
         'index.php' => 'Dashboard',
+        'edit-header.php' => 'Header & Menu',
         'edit-hero.php' => 'Hero',
         'edit-about.php' => 'About',
         'edit-services.php' => 'Services',

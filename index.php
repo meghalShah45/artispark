@@ -195,6 +195,14 @@ if (!empty($c["contact"]["map"]["enabled"]) && $markers): ?>
                         <label for="message" class="form-label">Message</label>
                         <textarea id="message" name="message" class="form-input form-textarea" rows="5" required></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="captcha" class="form-label">Verification code</label>
+                        <div class="captcha-row">
+                            <img src="captcha.php" id="captchaImage" alt="Verification code image" width="200" height="56">
+                            <button type="button" class="captcha-refresh" id="captchaRefresh" aria-label="Get a new code" title="Get a new code">&#8635;</button>
+                            <input type="text" id="captcha" name="captcha" class="form-input" required autocomplete="off" maxlength="5" placeholder="Type the code">
+                        </div>
+                    </div>
                     <input type="text" name="website" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <button type="submit" class="btn btn-primary" id="contactSubmit">Send Message</button>
                     <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>

@@ -87,9 +87,11 @@ contactForm?.addEventListener('submit', async (e) => {
         contactStatus.textContent = result.message || 'Thank you. Your inquiry has been sent successfully.';
         contactStatus.classList.add('is-success');
         contactForm.reset();
+        reloadCaptcha();
     } catch (error) {
         contactStatus.textContent = error.message || 'Sorry, your message could not be sent right now.';
         contactStatus.classList.add('is-error');
+        reloadCaptcha();
     } finally {
         contactSubmit.disabled = false;
         contactSubmit.textContent = 'Send Message';
@@ -113,3 +115,15 @@ if (mapEl && window.L) {
         map.fitBounds(group.getBounds().pad(0.35));
     }
 }
+
+// ---------- Contact CAPTCHA refresh ----------
+const captchaImage = document.getElementById('captchaImage');
+const captchaRefresh = document.getElementById('captchaRefresh');
+const captchaInput = document.getElementById('captcha');
+
+function reloadCaptcha() {
+    if (!captchaImage) return;
+    captchaImage.src = 'captcha.php?r=' + Date.now();
+    if (captchaInput) captchaInput.value = '';
+}
+captchaRefresh?.addEventListener('click', reloadCaptcha);
